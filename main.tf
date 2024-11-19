@@ -4,12 +4,6 @@
 ## Terraform configuration
 
 terraform {
-  cloud {
-    organization = "rum-org-korean-air"
-    workspaces {
-      name = "tf-migrate"
-    }
-  }
   required_providers {
     random = {
       source  = "hashicorp/random"
@@ -17,6 +11,9 @@ terraform {
     }
   }
   required_version = ">= 1.1.0"
+  backend {
+    path = "/home/ec2-user/code/.terraform/terraform.tfstate"
+  }
 }
 
 variable "name_length" {
